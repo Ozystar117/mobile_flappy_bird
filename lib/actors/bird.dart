@@ -5,7 +5,7 @@ import 'package:flame/components.dart';
 import 'package:flappy_bird/flappy_bird_game.dart';
 
 class Bird extends SpriteAnimationComponent with HasGameRef<FlappyBirdGame>{
-  Bird({required super.position}):super(size: Vector2.all(FlappyBirdGame.gridSize));
+  Bird({required super.position}):super(size: Vector2.all(FlappyBirdGame.gridSize - (FlappyBirdGame.gridSize * 0.2)));
 
   final List<Sprite> sprites = [
     FlappyBirdGame.flapySprite(3, 491, 17, 12),
@@ -13,7 +13,7 @@ class Bird extends SpriteAnimationComponent with HasGameRef<FlappyBirdGame>{
     FlappyBirdGame.flapySprite(59, 491, 17, 12),
   ];
 
-  final double gravity = FlappyBirdGame.gridSize/10;
+  final double gravity = FlappyBirdGame.gridSize/9;
   double velocity = 0;
   final double jumpSpeed = FlappyBirdGame.gridSize * 4;
 
