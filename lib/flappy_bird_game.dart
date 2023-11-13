@@ -7,6 +7,7 @@ import 'package:flappy_bird/actors/bird.dart';
 import 'package:flappy_bird/actors/tubes/tube.dart';
 import 'package:flappy_bird/actors/tubes/tube_group.dart';
 import 'package:flappy_bird/components/background.dart';
+import 'package:flappy_bird/overlays/hud.dart';
 
 class FlappyBirdGame extends FlameGame with TapCallbacks, HasCollisionDetection{
 
@@ -18,6 +19,7 @@ class FlappyBirdGame extends FlameGame with TapCallbacks, HasCollisionDetection{
   late final double tubeHorizontalGap;
   late final List<TubeGroup> tubeGroups;
   bool gameOver = false;
+  int score = 0;
 
   void init(){
     gridSize = size.y * 0.07;
@@ -41,6 +43,8 @@ class FlappyBirdGame extends FlameGame with TapCallbacks, HasCollisionDetection{
     // bird
     bird = Bird(position: Vector2(100,100));
     world.add(bird);
+
+    world.add(Hud());
     return super.onLoad();
   }
 
