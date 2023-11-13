@@ -48,10 +48,13 @@ class TubeGroup extends PositionComponent with HasGameRef<FlappyBirdGame>{
 
   @override
   void update(double dt) {
-    reset();
-    x -= velocity * dt;
-    topTube.x = x;
-    bottomTube.x = x;
+    if(!game.gameOver){
+      reset();
+      x -= velocity * dt;
+      topTube.x = x;
+      bottomTube.x = x;
+    }
+
 
     super.update(dt);
   }
