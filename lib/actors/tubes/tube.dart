@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flappy_bird/flappy_bird_game.dart';
 
@@ -7,6 +8,11 @@ class Tube extends SpriteComponent with HasGameRef<FlappyBirdGame>{
   // Tube({required this.sprite});
   Tube(){
     size.x = FlappyBirdGame.gridSize + ( FlappyBirdGame.gridSize * 0.3);
+  }
+  @override
+  void onLoad() {
+    add(RectangleHitbox(collisionType: CollisionType.passive));
+    super.onLoad();
   }
   // final Sprite sprite;
 
